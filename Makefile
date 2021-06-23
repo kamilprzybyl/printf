@@ -9,6 +9,8 @@ SRC = 	ft_printf.c \
 		handle_width.c \
 		handle_zero_flag.c \
 		handle_string.c \
+		handle_modulo.c \
+		check_format.c \
 		ft_isdigit.c \
 		ft_putchar.c \
 		ft_putstr.c \

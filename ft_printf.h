@@ -41,6 +41,7 @@ void	handle_pointer(t_info *info, va_list arg);
 void	handle_integer(t_info *info, va_list arg);
 void	handle_char(t_info *info, va_list arg);
 void	handle_u_char(t_info *info, va_list arg);
+void	handle_modulo(t_info *info, va_list arg);
 
 int		check_flag(t_info *info, int flag);
 void	check_width(t_info *info, const char *format, int *i);

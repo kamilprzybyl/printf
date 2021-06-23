@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-#include <stdio.h>
+// #include <stdio.h>
 char	*handle_precision(t_info *info, char *s, char spec)
 {
 	char	*res;

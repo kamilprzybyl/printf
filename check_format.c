@@ -10,19 +10,20 @@ t_call_fucntion	spec_table[] =
 	{handle_char, 'c'},
 	{handle_string, 's'},
 	{handle_pointer, 'p'},
+	{handle_modulo, '%'},
 	{(void *)0, '\0'}
 };
 
 int	check_flag(t_info *info, int flag)
 {
-	if (flag == '0')
+	if (flag == '-')
 	{
-		info->flags |= ZERO_FLAG;
+		info->is_minus_flag = 1;
 		return (true);
 	}
-	else if (flag == '-')
+	else if (flag == '0')
 	{
-		info->flags |= MINUS_SIGN;
+		info->is_zero_flag = 1;
 		return (true);
 	}
 	return (false);
@@ -45,7 +46,7 @@ void	check_prec(t_info *info, const char *format, int *i)
 	info->precision = true;
 }
 
-int	check_spec(t_info *info, va_list va_arg_list, char spec)
+int	check_spec(t_info *info, va_list arg, char spec)
 {
 	int i;
 
@@ -54,7 +55,7 @@ int	check_spec(t_info *info, va_list va_arg_list, char spec)
 	{
 		if (spec_table[i].spec == spec)
 		{
-			spec_table[i].fct(info, va_arg_list);
+			spec_table[i].fct(info, arg);
 			return (true);
 		}
 		i++;
