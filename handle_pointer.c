@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-#include <stdio.h>
+
 static char	*add_prefix(char *hex)
 {
 	char	*prefixed_hex;
@@ -14,15 +14,15 @@ static char	*add_prefix(char *hex)
 
 void	handle_pointer(t_info *info, va_list arg)
 {
-	char				*address;
+	char				*hex;
 	unsigned long long	i;
 
 	i = va_arg(arg, unsigned long long);//fetch data
-	address = ft_dec_to_hex(i, 0);
-	address = add_prefix(address);
+	hex = ft_dec_to_hex(i, 0);
+	hex = add_prefix(hex);
 	if (info->width && !info->is_minus_flag)
-		handle_width(info, address, 'x');
-	ft_putstr(address);
+		handle_width(info, hex, 'p');
+	ft_putstr(hex);
 	if (info->width && info->is_minus_flag)
-		handle_width(info, address, 'x');
+		handle_width(info, hex, 'p');
 }

@@ -50,7 +50,7 @@ char	*ft_utoa(unsigned int n)
 	s = (char *)malloc(sizeof(char) * intlen(n) + 1);
 	if (!s)
 		return (NULL);
-	if (n < 0)
+	if ((int)n < 0)
 		sign = -1;
 	else if (n == 0)
 		s[i++] = '0';

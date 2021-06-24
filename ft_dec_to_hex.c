@@ -1,26 +1,52 @@
 #include "ft_printf.h"
 
+static int	lllen(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n < 0)
+	{
+		len++;
+		n *= -1;
+	}
+	else if (n == 0)
+		len++;
+	while (n > 0)
+	{
+		n /= 16;
+		len++;
+	}
+	return (len);
+}
+
 char	*ft_dec_to_hex(unsigned long long n, int is_uppercase)
 {
 	int		i;
 	int		rem;
-	char	*hex_arr;
 	char	*hex;
-	char	*res;
+	char	*pattern;
 
-	hex = "0123456789abcdef";
-	hex_arr = malloc(50 * sizeof(char));
+	pattern = "0123456789abcdef";
+	hex = (char *)malloc(sizeof(char) * (lllen(n) + 1));
+	if (hex == NULL)
+		return NULL;
 	i = 0;
-	while (n != 0)
+	if (0 == n)
+		hex[i++] = '0';
+	else
 	{
-		rem = n % 16;
-		if (is_uppercase)
-			hex_arr[i++] = ft_toupper(hex[rem]);
-		else 
-			hex_arr[i++] = hex[rem];
-		n = n / 16;
+		while (n != 0)
+		{
+			rem = n % 16;
+			if (is_uppercase)
+				hex[i++] = ft_toupper(pattern[rem]);
+			else 
+				hex[i++] = pattern[rem];
+			n = n / 16;
+		}
 	}
-	res = ft_strrev(hex_arr);
-	free(hex_arr);
-	return (res);
+	hex[i] = '\0';
+	ft_strrev(hex);
+	return (hex);
 }
