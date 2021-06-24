@@ -7,7 +7,13 @@ void	handle_hex(t_info *info, va_list arg)
 
 	i = va_arg(arg, int);
 	hex = ft_dec_to_hex(i, 0);
+	if (info->is_preceision)
+		hex = handle_precision(info, hex, 'x');
+	if (info->width && !info->is_minus_flag)
+		handle_width(info, hex, 'x');
 	ft_putstr(hex);
+	if (info->width && info->is_minus_flag)
+		handle_width(info, hex, 'x');
 }
 
 
@@ -18,5 +24,11 @@ void	handle_heX(t_info *info, va_list arg)
 
 	i = va_arg(arg, int);
 	hex = ft_dec_to_hex(i, 1);
+	if (info->is_preceision)
+		hex = handle_precision(info, hex, 'X');
+	if (info->width && !info->is_minus_flag)
+		handle_width(info, hex, 'X');
 	ft_putstr(hex);
+	if (info->width && info->is_minus_flag)
+		handle_width(info, hex, 'X');
 }

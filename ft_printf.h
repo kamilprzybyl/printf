@@ -13,7 +13,7 @@
 typedef struct	s_info
 {
 	int	width;
-	int	precision;
+	int	is_preceision;
 	int	width_val;
 	int	precision_val;
 	int	is_zero_flag;
@@ -40,24 +40,27 @@ void	handle_string(t_info *info, va_list arg);
 void	handle_pointer(t_info *info, va_list arg);
 void	handle_integer(t_info *info, va_list arg);
 void	handle_char(t_info *info, va_list arg);
-void	handle_u_char(t_info *info, va_list arg);
+void	handle_u_int(t_info *info, va_list arg);
+void	handle_modulo(t_info *info, va_list arg);
 
 int		check_flag(t_info *info, int flag);
 void	check_width(t_info *info, const char *format, int *i);
-void	check_prec(t_info *info, const char *format, int *i);
+void	check_precision(t_info *info, va_list arg, const char *format, int *i);
 int		check_spec(t_info *info, va_list arg, char spec);
 
 int		ft_isdigit(int c);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
-char	*ft_dec_to_hex(long long int n, int is_uppercase);
+char	*ft_dec_to_hex(unsigned long long n, int is_uppercase);
 size_t	ft_strlen(const char *s);
 int		ft_toupper(int c);
 char	*ft_strrev(char *s);
 int		ft_atoi(const char *str);
+char	*ft_utoa(unsigned int n);
 char	*ft_itoa(int n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 int		ft_memcmp(const void *s1, const void *s2, unsigned long n);
+void	*ft_memset(void *b, int c, unsigned long len);
 
 #endif

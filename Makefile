@@ -5,10 +5,11 @@ SRC = 	ft_printf.c \
 		handle_hex.c \
 		handle_int.c \
 		handle_pointer.c \
-		handle_prec.c \
+		handle_precision.c \
 		handle_width.c \
-		handle_zero_flag.c \
 		handle_string.c \
+		handle_modulo.c \
+		check_format.c \
 		ft_isdigit.c \
 		ft_putchar.c \
 		ft_putstr.c \
@@ -18,9 +19,11 @@ SRC = 	ft_printf.c \
 		ft_strrev.c \
 		ft_atoi.c \
 		ft_itoa.c \
+		ft_utoa.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
-		ft_memcmp.c
+		ft_memcmp.c \
+		ft_memset.c
 
 OBJ = 	$(SRC:.c=.o)
 
