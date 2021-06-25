@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-#include <stdio.h>
+
 char	*handle_precision(t_info *info, char *s, char spec)
 {
 	char	*res;
@@ -14,7 +14,7 @@ char	*handle_precision(t_info *info, char *s, char spec)
 	else
 	{
 		if (info->precision_val < 0)// this if/else statement is fucked up
-			prec = (0 > ft_strlen(s)) ? 0 - ft_strlen(s) : 0;
+			prec = (0 > (int)ft_strlen(s)) ? 0 - ft_strlen(s) : 0;
 		else
 			prec = (info->precision_val > ft_strlen(s)) ? info->precision_val - ft_strlen(s) : 0;
 		res = (char *)malloc(sizeof(char) * (ft_strlen(s) + prec + 1));

@@ -182,32 +182,43 @@ int main()
 	printf("%p\n", NULL);
 	ft_printf("%p\n", NULL);
 
+<<<<<<< HEAD
 =======
 >>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 	printf("printf =    [%20p]\n", str);
 	ft_printf("ft_printf = [%20p]\n", str);
+=======
+	// printf("printf =    [%20p]\n", str);
+	// ft_printf("ft_printf = [%20p]\n", str);
+>>>>>>> e20a8b3215b119d294be3fa8ceaf9bae8386edd8
 	
-	printf("printf =    [%-20p]\n", str);
-	ft_printf("ft_printf = [%-20p]\n", str);
+	// printf("printf =    [%-20p]\n", str);
+	// ft_printf("ft_printf = [%-20p]\n", str);
 	
-	printf("printf =    [%5p]\n", str);
-	ft_printf("ft_printf = [%5p]\n", str);
+	// printf("printf =    [%5p]\n", str);
+	// ft_printf("ft_printf = [%5p]\n", str);
 	
-	printf("printf =    [%1p]\n", str);
-	ft_printf("ft_printf = [%1p]\n", str);
+	// printf("printf =    [%1p]\n", str);
+	// ft_printf("ft_printf = [%1p]\n", str);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	printf("*\n");
 	printf("%.*d\n", 5, 0);
 	ft_printf("%.*d\n", 5, 0);
+=======
+	// printf("*\n");
+	// printf("%.*d\n", 5, 0);
+	// ft_printf("%.*d\n", 5, 0);
+>>>>>>> e20a8b3215b119d294be3fa8ceaf9bae8386edd8
 
-	printf("%.*d\n", -2, 0);
-	ft_printf("%.*d\n", -2, 0);
+	// printf("%.*d\n", -2, 0);
+	// ft_printf("%.*d\n", -2, 0);
 
-	printf("u\n");
-	static unsigned int		mx_u = 235;
-	printf("%u\n", mx_u);
-	ft_printf("%u\n", mx_u);
+	// printf("u\n");
+	// static unsigned int		mx_u = 235;
+	// printf("%u\n", mx_u);
+	// ft_printf("%u\n", mx_u);
 
 =======
 >>>>>>> 1f7f56129f211a86118272203cca54f46bf58476

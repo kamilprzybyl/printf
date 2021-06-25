@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-
+#include <stdio.h>
 // #define NO_FLAG		0
 // #define MINUS_SIGN	1
 // #define ZERO_FLAG	2
@@ -58,7 +58,7 @@ void	ft_putstr(char *s);
 char	*ft_dec_to_hex(unsigned long long n, int is_uppercase);
 size_t	ft_strlen(const char *s);
 int		ft_toupper(int c);
-char	*ft_strrev(char *s);
+void	ft_strrev(char *s);
 int		ft_atoi(const char *str);
 char	*ft_utoa(unsigned int n);
 char	*ft_itoa(int n);

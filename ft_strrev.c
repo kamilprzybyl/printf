@@ -1,21 +1,19 @@
 #include "ft_printf.h"
 
-char *ft_strrev(char *s)
+void	ft_strrev(char *s)
 {
-    char    *z;
-    int     begin;
-    int     end;
-    
-    if(!(z = malloc(ft_strlen(s) * sizeof(char))))
-        return (NULL);
+	int		head;
+	int		tail;
+	char	temp;
 
-    begin = 0;
-    end = (ft_strlen(s) - 1);
-    
-    while (begin < ft_strlen(s))
-        z[begin++] = s[end--];
-
-    z[begin] = '\0';
-    
-    return (z);
+	head = 0;
+	tail = ft_strlen(s) - 1;
+	while (head < tail)
+	{
+		temp = s[head];
+		s[head] = s[tail];
+		s[tail] = temp;
+		head++;
+		tail--;
+	}
 }

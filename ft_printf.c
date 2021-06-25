@@ -45,7 +45,7 @@ int ft_printf(const char *restrict format, ...)
 	va_list	arg;
 	t_info	info;
 	int		i;
-    
+
 	va_start(arg, format);
 	i = 0;
 	while (format[i] != '\0')
