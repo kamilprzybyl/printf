@@ -14,6 +14,7 @@ void	handle_integer(t_info *info, va_list arg)
 	ft_putstr(s);
 	if (info->width && info->is_minus_flag)
 		handle_width(info, s, 'd');
+<<<<<<< HEAD
 }
 
 void	handle_u_int(t_info *info, va_list arg)
@@ -30,4 +31,7 @@ void	handle_u_int(t_info *info, va_list arg)
 	ft_putstr(s);
 	if (info->width && info->is_minus_flag)
 		handle_width(info, s, 'u');
+=======
+	free(s);
+>>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 }

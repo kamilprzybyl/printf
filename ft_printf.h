@@ -40,7 +40,11 @@ void	handle_string(t_info *info, va_list arg);
 void	handle_pointer(t_info *info, va_list arg);
 void	handle_integer(t_info *info, va_list arg);
 void	handle_char(t_info *info, va_list arg);
+<<<<<<< HEAD
 void	handle_u_int(t_info *info, va_list arg);
+=======
+void	handle_u_char(t_info *info, va_list arg);
+>>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 void	handle_modulo(t_info *info, va_list arg);
 
 int		check_flag(t_info *info, int flag);

@@ -4,6 +4,7 @@
 int main()
 {
 	printf("basic\n");
+<<<<<<< HEAD
 	// printf("%5c", '\0');
 	// ft_printf("%5c", '\0');
 	
@@ -12,14 +13,21 @@ int main()
 	
 	// printf("%%\n");
 	// ft_printf("%%\n");
+=======
+	printf("%%\n");
+	ft_printf("%%\n");
+>>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 
 	// printf("%\n");
 	// ft_printf("%\n");
 
+<<<<<<< HEAD
 	printf("%05%\n");
 	ft_printf("%05%\n");
 	
 
+=======
+>>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 	printf("%10%\n");
 	ft_printf("%10%\n");
 	
@@ -170,9 +178,12 @@ int main()
 
 	printf("pointer\n");
 	char *str = "442";
+<<<<<<< HEAD
 	printf("%p\n", NULL);
 	ft_printf("%p\n", NULL);
 
+=======
+>>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 	printf("printf =    [%20p]\n", str);
 	ft_printf("ft_printf = [%20p]\n", str);
 	
@@ -185,6 +196,7 @@ int main()
 	printf("printf =    [%1p]\n", str);
 	ft_printf("ft_printf = [%1p]\n", str);
 
+<<<<<<< HEAD
 	printf("*\n");
 	printf("%.*d\n", 5, 0);
 	ft_printf("%.*d\n", 5, 0);
@@ -197,6 +209,8 @@ int main()
 	printf("%u\n", mx_u);
 	ft_printf("%u\n", mx_u);
 
+=======
+>>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 
 	return 0;
 }
