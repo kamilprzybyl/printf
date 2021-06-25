@@ -1,14 +1,10 @@
 #include "ft_printf.h"
-// #include <stdio.h>
-<<<<<<< HEAD
+
 void	reset_info(t_info *info)
-=======
-void reset_info(t_info *info)
->>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 {
 	info->width = 0;
 	info->width_val = 0;
-	info->is_preceision = 0;
+	info->is_precision = 0;
 	info->precision_val = 0;
 	info->zero_flag_val = 0;
 	info->is_zero_flag = 0;
@@ -17,16 +13,13 @@ void reset_info(t_info *info)
 
 static void	handle_conversion(t_info *info, va_list arg, const char *format, int *i)
 {
-	if (check_flag(info, format[*i]) == true)
+	while (check_flag(info, format[*i]) == true)
 		(*i)++;
-	if (ft_isdigit(format[*i]))
-		check_width(info, format, i);
+	if (ft_isdigit(format[*i]) || format[*i] == '*')
+		check_width(info, arg, format, i);
 	if (format[*i] == '.')
-<<<<<<< HEAD
 		check_precision(info, arg, format, i);
-=======
-		check_prec(info, format, i);
->>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
+
 	if (check_spec(info, arg, format[*i]) == true)
 		(*i)++;
 	else if (format[*i] == '%')
@@ -36,11 +29,7 @@ static void	handle_conversion(t_info *info, va_list arg, const char *format, int
 	}
 }
 
-<<<<<<< HEAD
 int	ft_printf(const char *restrict format, ...)
-=======
-int ft_printf(const char *restrict format, ...)
->>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 {
 	va_list	arg;
 	t_info	info;
@@ -51,7 +40,6 @@ int ft_printf(const char *restrict format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-<<<<<<< HEAD
 		{
 			reset_info(&info);
 			i++;
@@ -59,15 +47,6 @@ int ft_printf(const char *restrict format, ...)
 		}
 		else
 		{
-=======
-		{
-			reset_info(&info);
-			i++;
-			handle_conversion(&info, arg, format, &i);
-		}
-		else
-		{
->>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 			ft_putchar(format[i]);
 			i++;
 		}

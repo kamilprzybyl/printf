@@ -18,22 +18,38 @@ int	check_flag(t_info *info, int flag)
 {
 	if (flag == '-')
 	{
+		if (info->is_zero_flag)
+			info->is_zero_flag = 0;
 		info->is_minus_flag = 1;
 		return (true);
 	}
 	else if (flag == '0')
 	{
-		info->is_zero_flag = 1;
+		if (!info->is_minus_flag)
+			info->is_zero_flag = 1;
 		return (true);
 	}
 	return (false);
 }
 
-void	check_width(t_info *info, const char *format, int *i)
+void	check_width(t_info *info, va_list arg, const char *format, int *i)
 {
-	info->width_val = ft_atoi(&(format[*i]));
-	while (ft_isdigit(format[*i])) 
+	if (format[*i] == '*')
+	{
+		info->width_val = va_arg(arg, int);
+		if (info->width_val < 0)// if the value is negative treat it like minus flag and postive value
+		{
+			info->width_val = ft_abs(info->width_val);
+			info->is_minus_flag = 1;
+		}
 		(*i)++;
+	}
+	else
+	{
+		info->width_val = ft_atoi(&(format[*i]));
+		while (ft_isdigit(format[*i])) 
+			(*i)++;
+	}
 	info->width = true;
 }
 
@@ -51,7 +67,7 @@ void	check_precision(t_info *info, va_list arg, const char *format, int *i)
 		while (ft_isdigit(format[*i]))
 			(*i)++;
 	}
-	info->is_preceision = true;
+	info->is_precision = true;
 }
 
 int	check_spec(t_info *info, va_list arg, char spec)

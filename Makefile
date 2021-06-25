@@ -23,7 +23,9 @@ SRC = 	ft_printf.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_memcmp.c \
-		ft_memset.c
+		ft_memset.c \
+		ft_abs.c \
+		ft_strdup.c
 
 OBJ = 	$(SRC:.c=.o)
 

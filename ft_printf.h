@@ -6,6 +6,8 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <limits.h>
+
 // #define NO_FLAG		0
 // #define MINUS_SIGN	1
 // #define ZERO_FLAG	2
@@ -13,7 +15,7 @@
 typedef struct	s_info
 {
 	int	width;
-	int	is_preceision;
+	int	is_precision;
 	int	width_val;
 	int	precision_val;
 	int	is_zero_flag;
@@ -40,15 +42,11 @@ void	handle_string(t_info *info, va_list arg);
 void	handle_pointer(t_info *info, va_list arg);
 void	handle_integer(t_info *info, va_list arg);
 void	handle_char(t_info *info, va_list arg);
-<<<<<<< HEAD
 void	handle_u_int(t_info *info, va_list arg);
-=======
-void	handle_u_char(t_info *info, va_list arg);
->>>>>>> 1f7f56129f211a86118272203cca54f46bf58476
 void	handle_modulo(t_info *info, va_list arg);
 
 int		check_flag(t_info *info, int flag);
-void	check_width(t_info *info, const char *format, int *i);
+void	check_width(t_info *info, va_list arg, const char *format, int *i);
 void	check_precision(t_info *info, va_list arg, const char *format, int *i);
 int		check_spec(t_info *info, va_list arg, char spec);
 
@@ -66,5 +64,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 int		ft_memcmp(const void *s1, const void *s2, unsigned long n);
 void	*ft_memset(void *b, int c, unsigned long len);
+int		ft_abs(long int a);
+char	*ft_strdup(const char *s1);
 
 #endif
