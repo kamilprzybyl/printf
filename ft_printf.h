@@ -7,11 +7,13 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
+#include <fcntl.h>
 
 // #define NO_FLAG		0
 // #define MINUS_SIGN	1
 // #define ZERO_FLAG	2
 int	len;
+// int input_f;
 
 typedef struct	s_info
 {
