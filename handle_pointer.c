@@ -18,7 +18,10 @@ void	handle_pointer(t_info *info, va_list arg)
 	unsigned long long	i;
 
 	i = va_arg(arg, unsigned long long);//fetch data
-	hex = ft_dec_to_hex(i, 0);
+	if (i == 0 && info->is_precision)
+		hex = ft_strdup("");
+	else
+		hex = ft_dec_to_hex(i, 0);
 	hex = add_prefix(hex);
 	if (info->width && !info->is_minus_flag)
 		handle_width(info, hex, 'p');

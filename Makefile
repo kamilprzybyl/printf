@@ -4,6 +4,7 @@ SRC = 	ft_printf.c \
 		handle_char.c \
 		handle_hex.c \
 		handle_int.c \
+		handle_u_int.c \
 		handle_pointer.c \
 		handle_precision.c \
 		handle_width.c \

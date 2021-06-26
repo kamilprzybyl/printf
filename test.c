@@ -217,7 +217,47 @@ int main()
 	// ft_printf("%.6d\n", -3);
 
 
-	ft_printf("%23s", NULL);
+	// ft_printf("%23s", NULL);
+	ft_printf("%07i\n", -54);
+	printf("%07i\n", -54);
 
+	ft_printf("%07.5i\n", -54);
+	printf("%07.5i\n", -54);
+
+	ft_printf("%-7.5i\n", -54);
+	printf("%-7.5i\n", -54);
+
+	ft_printf("this %i number\n", -267);
+	printf("this %i number\n", -267);
+
+	ft_printf("%7i\n", -14);
+	printf("%7i\n", -14);
+
+	ft_printf("%d\n", INT_MIN);
+	printf("%d\n", INT_MIN);
+
+	ft_printf("{%05.*d}\n", -15, 42);
+	printf("{%05.*d}\n", -15, 42);
+
+	printf("%i\n",ft_printf("[p8 %.10d]\n", 100));
+	printf("%i\n",printf("[p8 %.10d]\n", 100));
+
+	printf("%d\n", ft_printf("[pp %.50d]\n", 10000));
+	printf("%d\n", printf("[pp %.50d]\n", 10000));
+
+	ft_printf("[%.p]\n", NULL);
+	printf("[%.p]\n", NULL);
+
+	ft_printf("%p\n", NULL);
+	printf("%p\n", NULL);
+
+	ft_printf("%08.5i\n", 34);
+	printf("%08.5i\n", 34);
+
+	ft_printf("{%.*s}\n", -5, "42");
+	printf("{%.*s}\n", -5, "42");
+
+	printf("%d\n", ft_printf("%.20d\n", 1024));
+	printf("%d\n", printf("%.20d\n", 1024));
 	return 0;
 }

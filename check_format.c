@@ -60,14 +60,18 @@ void	check_precision(t_info *info, va_list arg, const char *format, int *i)
 	{
 		info->precision_val = va_arg(arg, int);
 		(*i)++;
+		if (info->precision_val < 0)//ignore precision when it's less than zero
+			info->is_precision = false;
+		else
+			info->is_precision = true;
 	}
 	else
 	{
 		info->precision_val = ft_atoi(&(format[*i]));
 		while (ft_isdigit(format[*i]))
 			(*i)++;
+		info->is_precision = true;
 	}
-	info->is_precision = true;
 }
 
 int	check_spec(t_info *info, va_list arg, char spec)

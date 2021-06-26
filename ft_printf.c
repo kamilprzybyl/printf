@@ -19,7 +19,6 @@ static void	handle_conversion(t_info *info, va_list arg, const char *format, int
 		check_width(info, arg, format, i);
 	if (format[*i] == '.')
 		check_precision(info, arg, format, i);
-
 	if (check_spec(info, arg, format[*i]) == true)
 		(*i)++;
 	else if (format[*i] == '%')
@@ -35,6 +34,7 @@ int	ft_printf(const char *restrict format, ...)
 	t_info	info;
 	int		i;
 
+	len = 0;
 	va_start(arg, format);
 	i = 0;
 	while (format[i] != '\0')
@@ -52,5 +52,5 @@ int	ft_printf(const char *restrict format, ...)
 		}
 	}
 	va_end(arg);
-	return (0);
+	return (len);
 }

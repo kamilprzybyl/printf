@@ -39,7 +39,7 @@ static int	intlen(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long int n)
 {
 	char	*s;
 	int		i;
