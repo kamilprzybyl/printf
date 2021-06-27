@@ -2,9 +2,18 @@
 
 void	handle_modulo(t_info *info, va_list arg)
 {
-	if (info->width && !info->is_minus_flag)// if minus flag we want the output to be right-justified
-		handle_width(info, "1", '%');
-	ft_putchar('%');
-	if (info->width && info->is_minus_flag)// if minus flag we want the output to be left-justified
-		handle_width(info, "1", '%');
+	info->c = '%';
+	calculate_len(info);
+	if (!info->is_minus_flag)
+	{
+		if (info->width)
+			handle_width(info, '%');
+		ft_putchar('%');
+	}
+	else
+	{
+		ft_putchar('%');
+		if (info->width)
+			handle_width(info, '%');
+	}
 }

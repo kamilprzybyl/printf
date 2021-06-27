@@ -1,27 +1,50 @@
 #include "ft_printf.h"
 
-char	*handle_precision(t_info *info, char *s, char spec)
+void	calculate_len(t_info *info)
 {
-	char	*res;
-	int		prec;
+	if (info->s)
+		info->len = ft_strlen(info->s);
+	else if (info->c)
+		info->len = 1;
+}
 
+void	fix_precision(t_info *info, char spec)
+{
+	if (spec == 's')
+		info->fixed_precision = (info->precision_val < info->len) ? info->precision_val : info->len;
+	else
+		info->fixed_precision = (info->precision_val > info->len) ? info->precision_val : info->len;
+}
+
+void	handle_precision(t_info *info, char spec)
+{
+	if (spec == 's')
+		info->prec = info->fixed_precision;
+	else
+	{
+		info->prec = (info->fixed_precision > info->len) ? info->fixed_precision - info->len : 0;
+		while (info->prec > 0)
+		{
+			ft_putchar('0');
+			info->prec--;
+		}
+	}
+}
+
+void	print(t_info *info, char spec)
+{
 	if (spec == 's')
 	{
-		prec = (info->precision_val < ft_strlen(s)) ? info->precision_val : ft_strlen(s);
-		res = (char *)malloc(sizeof(char) * (prec + 1));
-		ft_strlcpy(res, s, prec + 1);
+		if (info->is_precision)
+			ft_putstr(info->s, info->prec);
+		else
+			ft_putstr(info->s, info->len);
 	}
 	else
 	{
-		if (info->precision_val < 0)// this if/else statement is fucked up
-			prec = (0 > ft_strlen(s)) ? 0 - ft_strlen(s) : 0;
+		if (info->is_precision && info->precision_val == 0 && strncmp("0", info->s, 1) == 0)//excpetion when precision and value is zero
+			return ;
 		else
-			prec = (info->precision_val > ft_strlen(s)) ? info->precision_val - ft_strlen(s) : 0;
-		res = (char *)malloc(sizeof(char) * (ft_strlen(s) + prec + 1));
-		if (ft_memcmp(s, "0", ft_strlen(s)) == 0 && info->precision_val == 0)//exepction where prec and number is zero
-			return res;
-		ft_memset(res, '0', prec);
-		ft_strlcat(res, s, prec + ft_strlen(s) + 1);
+			ft_putstr(info->s, info->len);
 	}
-	return (res);
 }
