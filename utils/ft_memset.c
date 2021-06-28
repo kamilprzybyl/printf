@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	*ft_memset(void *b, int c, unsigned long len)
 {

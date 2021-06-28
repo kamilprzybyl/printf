@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-t_call_fucntion	spec_table[] =
+t_call_fucntion	g_spec_table[] =
 {
 	{handle_integer, 'd'},
 	{handle_integer, 'i'},
@@ -41,6 +41,8 @@ void	check_width(t_info *info, va_list arg, const char *format, int *i)
 		{
 			info->width_val = ft_abs(info->width_val);
 			info->is_minus_flag = 1;
+			if (info->is_zero_flag)
+				info->is_zero_flag = 0;
 		}
 		(*i)++;
 	}
@@ -50,7 +52,7 @@ void	check_width(t_info *info, va_list arg, const char *format, int *i)
 		while (ft_isdigit(format[*i])) 
 			(*i)++;
 	}
-	info->width = true;
+	info->is_width = true;
 }
 
 void	check_precision(t_info *info, va_list arg, const char *format, int *i)
@@ -79,11 +81,11 @@ int	check_spec(t_info *info, va_list arg, char spec)
 	int i;
 
 	i = 0;
-	while (spec_table[i].fct)
+	while (g_spec_table[i].fct)
 	{
-		if (spec_table[i].spec == spec)
+		if (g_spec_table[i].spec == spec)
 		{
-			spec_table[i].fct(info, arg);
+			g_spec_table[i].fct(info, arg);
 			return (true);
 		}
 		i++;

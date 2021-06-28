@@ -1,14 +1,21 @@
+
 #include "ft_printf.h"
 
 void	reset_info(t_info *info)
 {
-	info->width = 0;
+	info->is_width = 0;
 	info->width_val = 0;
 	info->is_precision = 0;
 	info->precision_val = 0;
 	info->zero_flag_val = 0;
 	info->is_zero_flag = 0;
 	info->is_minus_flag = 0;
+	info->fixed_precision = 0;
+	info->prec = 0;
+	info->len = 0;
+	info->s = NULL;
+	if (info->s)
+		free(info->s);
 }
 
 static void	handle_conversion(t_info *info, va_list arg, const char *format, int *i)
@@ -18,7 +25,10 @@ static void	handle_conversion(t_info *info, va_list arg, const char *format, int
 	if (ft_isdigit(format[*i]) || format[*i] == '*')
 		check_width(info, arg, format, i);
 	if (format[*i] == '.')
+	{
 		check_precision(info, arg, format, i);
+		info->is_zero_flag = 0;
+	}
 	if (check_spec(info, arg, format[*i]) == true)
 		(*i)++;
 	else if (format[*i] == '%')
@@ -34,7 +44,7 @@ int	ft_printf(const char *restrict format, ...)
 	t_info	info;
 	int		i;
 
-	len = 0;
+	ret = 0;
 	va_start(arg, format);
 	i = 0;
 	while (format[i] != '\0')
@@ -52,5 +62,5 @@ int	ft_printf(const char *restrict format, ...)
 		}
 	}
 	va_end(arg);
-	return (len);
+	return (ret);
 }

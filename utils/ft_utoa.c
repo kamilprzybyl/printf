@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 static char	*reverse(char *str)
 {
@@ -39,7 +39,7 @@ static int	intlen(int n)
 	return (len);
 }
 
-char	*ft_itoa(long int n)
+char	*ft_utoa(unsigned int n)
 {
 	char	*s;
 	int		i;

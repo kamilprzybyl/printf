@@ -1,18 +1,24 @@
 #include "ft_printf.h"
 
-void	handle_width(t_info *info, char *s, char spec)
+void	handle_width(t_info *info, char spec)
 {
-	int		padding;
+	int	padding;
 
-	if (spec == 'c')
-		padding = info->width_val - 1;
+	if (!info->is_precision)
+			padding = info->width_val - info->len;
 	else
-		padding = info->width_val - ft_strlen(s);
-	while (padding > 0){
-		if (info->is_zero_flag && (!info->is_precision || info->precision_val == 0))
-			ft_putchar('0');
+	{
+		if (spec != 's' && info->is_precision && info->precision_val == 0 && strncmp("0", info->s, 1) == 0)//excpetion when precision and value is zero
+			padding = info->width_val;
 		else
+			padding = info->width_val - info->fixed_precision;
+	}
+	while (padding > 0)
+	{
+		if (!info->is_zero_flag)
 			ft_putchar(' ');
+		else
+			ft_putchar('0');
 		padding--;
 	}
 }

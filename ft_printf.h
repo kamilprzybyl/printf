@@ -7,21 +7,30 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
+#include <fcntl.h>
+#include <string.h>
 
-// #define NO_FLAG		0
-// #define MINUS_SIGN	1
-// #define ZERO_FLAG	2
-int	len;
+#define NO_FLAG		0
+#define MINUS_SIGN	1
+#define ZERO_FLAG	2
+
+int	ret;
 
 typedef struct	s_info
 {
-	int	width;
-	int	is_precision;
-	int	width_val;
-	int	precision_val;
-	int	is_zero_flag;
-	int	is_minus_flag;
-	int	zero_flag_val;
+	char	*s;
+	int		c;
+	int		len;
+	int		is_width;
+	int		is_precision;
+	int		width_val;
+	int		precision_val;
+	int		is_zero_flag;
+	int		is_minus_flag;
+	int		zero_flag_val;
+
+	int		fixed_precision;
+	int		prec;
 
 }				t_info;
 
@@ -33,9 +42,12 @@ typedef struct	s_call_function
 
 int			ft_printf(const char *restrict format, ...);
 
-void		handle_width(t_info *info, char *s, char spec);
-char		*handle_precision(t_info *info, char *s, char spec);
+void		handle_width(t_info *info, char spec);
+void		handle_precision(t_info *info, char spec);
+void		fix_precision(t_info *info, char spec);
 void		handle_zero_flag(t_info *info, int spec);
+void		print(t_info *info, char spec);
+void		calculate_len(t_info *info);
 
 void		handle_hex(t_info *info, va_list arg);
 void		handle_heX(t_info *info, va_list arg);
@@ -53,7 +65,7 @@ int			check_spec(t_info *info, va_list arg, char spec);
 
 int			ft_isdigit(int c);
 void		ft_putchar(char c);
-void		ft_putstr(char *s);
+void		ft_putstr(char *s, int n);
 char		*ft_dec_to_hex(unsigned long long n, int is_uppercase);
 size_t		ft_strlen(const char *s);
 int			ft_toupper(int c);

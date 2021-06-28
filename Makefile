@@ -11,22 +11,22 @@ SRC = 	ft_printf.c \
 		handle_string.c \
 		handle_modulo.c \
 		check_format.c \
-		ft_isdigit.c \
-		ft_putchar.c \
-		ft_putstr.c \
-		ft_dec_to_hex.c \
-		ft_strlen.c \
-		ft_toupper.c \
-		ft_strrev.c \
-		ft_atoi.c \
-		ft_itoa.c \
-		ft_utoa.c \
-		ft_strlcpy.c \
-		ft_strlcat.c \
-		ft_memcmp.c \
-		ft_memset.c \
-		ft_abs.c \
-		ft_strdup.c
+		utils/ft_isdigit.c \
+		utils/ft_putchar.c \
+		utils/ft_putstr.c \
+		utils/ft_dec_to_hex.c \
+		utils/ft_strlen.c \
+		utils/ft_toupper.c \
+		utils/ft_strrev.c \
+		utils/ft_atoi.c \
+		utils/ft_itoa.c \
+		utils/ft_utoa.c \
+		utils/ft_strlcpy.c \
+		utils/ft_strlcat.c \
+		utils/ft_memcmp.c \
+		utils/ft_memset.c \
+		utils/ft_abs.c \
+		utils/ft_strdup.c
 
 OBJ = 	$(SRC:.c=.o)
 

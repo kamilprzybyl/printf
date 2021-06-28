@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_memcmp(const void *s1, const void *s2, unsigned long n)
 {
