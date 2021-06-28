@@ -13,9 +13,12 @@ void	reset_info(t_info *info)
 	info->fixed_precision = 0;
 	info->prec = 0;
 	info->len = 0;
+<<<<<<< HEAD
 	info->s = NULL;
 	if (info->s)
 		free(info->s);
+=======
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 }
 
 static void	handle_conversion(t_info *info, va_list arg, const char *format, int *i)
@@ -63,4 +66,8 @@ int	ft_printf(const char *restrict format, ...)
 	}
 	va_end(arg);
 	return (ret);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03

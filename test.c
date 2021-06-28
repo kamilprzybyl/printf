@@ -42,8 +42,13 @@
 // 	printf("hello, %s.\n", NULL);
 // 	ft_printf("hello, %s.\n", NULL);
 
+<<<<<<< HEAD
 // 	printf("hello, %s.\n", "gavin");
 // 	ft_printf("hello, %s.\n", "gavin");
+=======
+	// printf("hello, %s.\n", "gavin");
+	// ft_printf("hello, %s.\n", "gavin");
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 	
 // 	printf("printf =    [%.3s]\n", "abcde");
 // 	ft_printf("ft_printf = [%.3s]\n", "abcde");
@@ -72,8 +77,20 @@
 // 	printf("[%32s]\n", "abc");
 // 	ft_printf("[%32s]\n", "abc");
 
+<<<<<<< HEAD
 // 	printf("hello, %s.\n", NULL);
 // 	ft_printf("hello, %s.\n", NULL);
+=======
+	// printf("[%32s]\n", "abc");
+	// ft_printf("[%32s]\n", "abc");
+
+	// printf("hello, %s.\n", NULL);
+	// ft_printf("hello, %s.\n", NULL);
+
+	// printf("int\n");
+	// printf("%%-d 42 == %-d\n", INT_MIN);
+	// ft_printf("%%-d 42 == %-d\n", INT_MIN);
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 
 // 	printf("int\n");
 // 	printf("%%-d 42 == %-d\n", INT_MIN);
@@ -237,6 +254,7 @@
 // 	ft_printf("%7i\n", -14);
 // 	printf("%7i\n", -14);
 
+<<<<<<< HEAD
 // 	ft_printf("%d\n", INT_MIN);
 // 	printf("%d\n", INT_MIN);
 
@@ -370,4 +388,81 @@ int main()
 	printf(": %i\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
 
 
+=======
+	// ft_printf("%23s", NULL);
+	// ft_printf("%07i\n", -54);
+	// printf("%07i\n", -54);
+
+	// ft_printf("%07.5i\n", -54);
+	// printf("%07.5i\n", -54);
+
+	// ft_printf("%-7.5i\n", -54);
+	// printf("%-7.5i\n", -54);
+
+	// ft_printf("this %i number\n", -267);
+	// printf("this %i number\n", -267);
+
+	// ft_printf("%7i\n", -14);
+	// printf("%7i\n", -14);
+
+	// ft_printf("%d\n", INT_MIN);
+	// printf("%d\n", INT_MIN);
+
+	// ft_printf("{%05.*d}\n", -15, 42);
+	// printf("{%05.*d}\n", -15, 42);
+
+	// printf("%i\n",ft_printf("[p8 %.10d]\n", 100));
+	// printf("%i\n",printf("[p8 %.10d]\n", 100));
+
+	// printf("%d\n", ft_printf("[pp %.50d]\n", 10000));
+	// printf("%d\n", printf("[pp %.50d]\n", 10000));
+
+	// ft_printf("[%.p]\n", NULL);
+	// printf("[%.p]\n", NULL);
+
+	// ft_printf("%p\n", NULL);
+	// printf("%p\n", NULL);
+
+	// ft_printf("%08.5i\n", 34);
+	// printf("%08.5i\n", 34);
+
+	// ft_printf("{%.*s}\n", -5, "42");
+	// printf("{%.*s}\n", -5, "42");
+
+	// printf("%d\n", ft_printf("%.20d\n", 1024));
+	// printf("%d\n", printf("%.20d\n", 1024));
+
+	// ft_printf("%-8.5X\n", 34);
+	// printf("%-8.5X\n", 34);
+
+	// ft_printf("%0*i\n", -7, -54);
+	// printf("%0*i\n", -7, -54);
+	
+	// ft_printf("ultimate3 %*.*d %*.*s\n", 1, 50, 5000, 1, 0, "hey");
+	// printf("ultimate3 %*.*d %*.*s\n", 1, 50, 5000, 1, 0, "hey");
+    // // input_f = open("./input.txt", O_CREAT | O_APPEND |  O_RDWR ,0666);
+	// ft_printf("%-8.5X\n", 34);
+    // close(input_f);
+
+	// printf("char\n");
+	// ft_printf("%5cs\n", '\0');
+	// printf("%5cs\n", '\0');
+	
+	
+	printf("x\n");
+	ft_printf("[%.5x]\n", 21);
+	printf("[%.5x]\n", 21);
+
+	ft_printf("[%08.5x]\n", 34);
+	printf("[%08.5x]\n", 34);
+
+	ft_printf("[%.0x]\n", 0);
+	printf("[%.0x]\n", 0);
+
+	ft_printf("[%5.0x]\n", 0);
+	printf("[%5.0x]\n", 0);
+	
+	
+	return 0;
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 }

@@ -10,17 +10,26 @@
 #include <fcntl.h>
 #include <string.h>
 
+<<<<<<< HEAD
 #define NO_FLAG		0
 #define MINUS_SIGN	1
 #define ZERO_FLAG	2
 
 int	ret;
+=======
+// #define NO_FLAG		0
+// #define MINUS_SIGN	1
+// #define ZERO_FLAG	2
+int	ret;
+// int input_f;
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 
 typedef struct	s_info
 {
 	char	*s;
 	int		c;
 	int		len;
+<<<<<<< HEAD
 	int		is_width;
 	int		is_precision;
 	int		width_val;
@@ -31,6 +40,18 @@ typedef struct	s_info
 
 	int		fixed_precision;
 	int		prec;
+=======
+	int	width;
+	int	is_precision;
+	int	width_val;
+	int	precision_val;
+	int	is_zero_flag;
+	int	is_minus_flag;
+	int	zero_flag_val;
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
+
+	int	fixed_precision;
+	int	prec;
 
 }				t_info;
 

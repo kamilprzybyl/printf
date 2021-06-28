@@ -25,14 +25,22 @@ void	handle_char(t_info *info, va_list arg)
 	info->len = 1;
 	if (!info->is_minus_flag)
 	{
+<<<<<<< HEAD
 		if (info->is_width)
+=======
+		if (info->width)
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 			handle_width(info, 'c');
 		ft_putchar(info->c);
 	}
 	else
 	{
 		ft_putchar(info->c);
+<<<<<<< HEAD
 		if (info->is_width)
+=======
+		if (info->width)
+>>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 			handle_width(info, 'c');
 	}
 }
