@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-static int	lllen(int n)
+static int	llen(int n)
 {
 	int	len;
 
@@ -20,17 +20,16 @@ static int	lllen(int n)
 	return (len);
 }
 
-char	*ft_dec_to_hex(unsigned long long n, int is_uppercase)
+char	*ft_dec_to_hex(unsigned long n, int is_uppercase)
 {
 	int		i;
-	int		rem;
 	char	*hex;
 	char	*pattern;
 
 	pattern = "0123456789abcdef";
-	hex = (char *)malloc(sizeof(char) * (lllen(n) + 1));
+	hex = (char *)malloc(sizeof(char) * (llen(n) + 1));
 	if (hex == NULL)
-		return NULL;
+		return (NULL);
 	i = 0;
 	if (0 == n)
 		hex[i++] = '0';
@@ -38,11 +37,10 @@ char	*ft_dec_to_hex(unsigned long long n, int is_uppercase)
 	{
 		while (n != 0)
 		{
-			rem = n % 16;
 			if (is_uppercase)
-				hex[i++] = ft_toupper(pattern[rem]);
-			else 
-				hex[i++] = pattern[rem];
+				hex[i++] = ft_toupper(pattern[n % 16]);
+			else
+				hex[i++] = pattern[n % 16];
 			n = n / 16;
 		}
 	}

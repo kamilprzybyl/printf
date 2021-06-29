@@ -4,15 +4,12 @@ void	handle_width(t_info *info, char spec)
 {
 	int	padding;
 
-	if (!info->is_precision)
-<<<<<<< HEAD
-			padding = info->width_val - info->len;
-=======
+	if (!info->is_prec)
 		padding = info->width_val - info->len;
->>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
 	else
 	{
-		if (spec != 's' && info->is_precision && info->precision_val == 0 && strncmp("0", info->s, 1) == 0)//excpetion when precision and value is zero
+		if (spec != 's' && info->is_prec && !info->prec
+			&& !ft_strncmp("0", info->s, 1))
 			padding = info->width_val;
 		else
 			padding = info->width_val - info->fixed_precision;
@@ -26,5 +23,3 @@ void	handle_width(t_info *info, char spec)
 		padding--;
 	}
 }
-
-

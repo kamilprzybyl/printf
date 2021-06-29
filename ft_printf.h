@@ -1,61 +1,30 @@
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <string.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-<<<<<<< HEAD
-#define NO_FLAG		0
-#define MINUS_SIGN	1
-#define ZERO_FLAG	2
+int	g_ret;
 
-int	ret;
-=======
-// #define NO_FLAG		0
-// #define MINUS_SIGN	1
-// #define ZERO_FLAG	2
-int	ret;
-// int input_f;
->>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
-
-typedef struct	s_info
+typedef struct s_info
 {
 	char	*s;
 	int		c;
 	int		len;
-<<<<<<< HEAD
 	int		is_width;
-	int		is_precision;
+	int		is_prec;
 	int		width_val;
-	int		precision_val;
+	int		prec;
 	int		is_zero_flag;
 	int		is_minus_flag;
 	int		zero_flag_val;
-
 	int		fixed_precision;
-	int		prec;
-=======
-	int	width;
-	int	is_precision;
-	int	width_val;
-	int	precision_val;
-	int	is_zero_flag;
-	int	is_minus_flag;
-	int	zero_flag_val;
->>>>>>> ac09cbc46955801ea0bd9529b91b51bbdb716e03
-
-	int	fixed_precision;
-	int	prec;
+	int		prec_to_apply;
 
 }				t_info;
 
-typedef struct	s_call_function
+typedef struct s_call_function
 {
 	void	(*fct)(t_info *info, va_list arg);
 	char	spec;
@@ -63,9 +32,10 @@ typedef struct	s_call_function
 
 int			ft_printf(const char *restrict format, ...);
 
+void		handle_conv(t_info *info, va_list arg, const char *format, int *i);
 void		handle_width(t_info *info, char spec);
-void		handle_precision(t_info *info, char spec);
-void		fix_precision(t_info *info, char spec);
+void		handle_prec(t_info *info, char spec);
+void		fix_prec(t_info *info, char spec);
 void		handle_zero_flag(t_info *info, int spec);
 void		print(t_info *info, char spec);
 void		calculate_len(t_info *info);
@@ -81,13 +51,13 @@ void		handle_modulo(t_info *info, va_list arg);
 
 int			check_flag(t_info *info, int flag);
 void		check_width(t_info *info, va_list arg, const char *format, int *i);
-void		check_precision(t_info *info, va_list arg, const char *format, int *i);
+void		check_prec(t_info *info, va_list arg, const char *format, int *i);
 int			check_spec(t_info *info, va_list arg, char spec);
 
 int			ft_isdigit(int c);
 void		ft_putchar(char c);
 void		ft_putstr(char *s, int n);
-char		*ft_dec_to_hex(unsigned long long n, int is_uppercase);
+char		*ft_dec_to_hex(unsigned long n, int is_uppercase);
 size_t		ft_strlen(const char *s);
 int			ft_toupper(int c);
 void		ft_strrev(char *s);
@@ -100,5 +70,6 @@ int			ft_memcmp(const void *s1, const void *s2, unsigned long n);
 void		*ft_memset(void *b, int c, unsigned long len);
 long int	ft_abs(long int a);
 char		*ft_strdup(const char *s1);
+int			ft_strncmp(const char *s1, const char *s2, unsigned long n);
 
 #endif

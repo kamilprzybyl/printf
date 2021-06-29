@@ -2,6 +2,6 @@
 
 void	ft_putchar(char c)
 {
-	ret++;
+	g_ret++;
 	write(1, &c, 1);
 }

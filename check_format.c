@@ -21,15 +21,15 @@ int	check_flag(t_info *info, int flag)
 		if (info->is_zero_flag)
 			info->is_zero_flag = 0;
 		info->is_minus_flag = 1;
-		return (true);
+		return (1);
 	}
 	else if (flag == '0')
 	{
 		if (!info->is_minus_flag)
 			info->is_zero_flag = 1;
-		return (true);
+		return (1);
 	}
-	return (false);
+	return (0);
 }
 
 void	check_width(t_info *info, va_list arg, const char *format, int *i)
@@ -37,7 +37,7 @@ void	check_width(t_info *info, va_list arg, const char *format, int *i)
 	if (format[*i] == '*')
 	{
 		info->width_val = va_arg(arg, int);
-		if (info->width_val < 0)// if the value is negative treat it like minus flag and postive value
+		if (info->width_val < 0)
 		{
 			info->width_val = ft_abs(info->width_val);
 			info->is_minus_flag = 1;
@@ -49,36 +49,36 @@ void	check_width(t_info *info, va_list arg, const char *format, int *i)
 	else
 	{
 		info->width_val = ft_atoi(&(format[*i]));
-		while (ft_isdigit(format[*i])) 
+		while (ft_isdigit(format[*i]))
 			(*i)++;
 	}
-	info->is_width = true;
+	info->is_width = 1;
 }
 
-void	check_precision(t_info *info, va_list arg, const char *format, int *i)
+void	check_prec(t_info *info, va_list arg, const char *format, int *i)
 {
-	(*i)++;//skip the dot
+	(*i)++;
 	if (format[*i] == '*')
 	{
-		info->precision_val = va_arg(arg, int);
+		info->prec = va_arg(arg, int);
 		(*i)++;
-		if (info->precision_val < 0)//ignore precision when it's less than zero
-			info->is_precision = false;
+		if (info->prec < 0)
+			info->is_prec = 0;
 		else
-			info->is_precision = true;
+			info->is_prec = 1;
 	}
 	else
 	{
-		info->precision_val = ft_atoi(&(format[*i]));
+		info->prec = ft_atoi(&(format[*i]));
 		while (ft_isdigit(format[*i]))
 			(*i)++;
-		info->is_precision = true;
+		info->is_prec = 1;
 	}
 }
 
 int	check_spec(t_info *info, va_list arg, char spec)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (g_spec_table[i].fct)
@@ -86,9 +86,9 @@ int	check_spec(t_info *info, va_list arg, char spec)
 		if (g_spec_table[i].spec == spec)
 		{
 			g_spec_table[i].fct(info, arg);
-			return (true);
+			return (1);
 		}
 		i++;
 	}
-	return (false);
+	return (0);
 }

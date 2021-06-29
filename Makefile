@@ -10,7 +10,10 @@ SRC = 	ft_printf.c \
 		handle_width.c \
 		handle_string.c \
 		handle_modulo.c \
+		handle_conversion.c \
 		check_format.c \
+		print.c \
+		utils/calculate_len.c \
 		utils/ft_isdigit.c \
 		utils/ft_putchar.c \
 		utils/ft_putstr.c \
@@ -26,7 +29,8 @@ SRC = 	ft_printf.c \
 		utils/ft_memcmp.c \
 		utils/ft_memset.c \
 		utils/ft_abs.c \
-		utils/ft_strdup.c
+		utils/ft_strdup.c \
+		utils/ft_strncmp.c
 
 OBJ = 	$(SRC:.c=.o)
 
