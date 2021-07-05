@@ -40,6 +40,7 @@ int	ft_printf(const char *restrict format, ...)
 			i++;
 		}
 	}
+	reset_info(&info);
 	va_end(arg);
 	return (g_ret);
 }

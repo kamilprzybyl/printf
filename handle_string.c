@@ -2,7 +2,8 @@
 
 void	handle_string(t_info *info, va_list arg)
 {
-	info->s = va_arg(arg, char *);
+	if (!(info->s = va_arg(arg, char *)))
+		return ;
 	if (info->s == NULL)
 		info->s = ft_strdup("(null)");
 	calculate_len(info);

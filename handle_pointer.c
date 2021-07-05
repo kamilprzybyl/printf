@@ -19,7 +19,8 @@ void	handle_pointer(t_info *info, va_list arg)
 	i = va_arg(arg, unsigned long);
 	if (i == 0)
 		info->s = ft_strdup("0");
-	info->s = ft_dec_to_hex(i, 0);
+	if (!(info->s = ft_dec_to_hex(i, 0)))
+		return ;
 	calculate_len(info);
 	info->width_val -= 2;
 	if (!info->is_minus_flag)

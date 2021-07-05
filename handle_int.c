@@ -57,7 +57,8 @@ void	handle_integer(t_info *info, va_list arg)
 	int		i;
 
 	i = va_arg(arg, int);
-	info->s = ft_itoa(ft_abs(i));
+	if (!(info->s = ft_itoa(ft_abs(i))))
+		return ;
 	calculate_len(info);
 	if (i < 0)
 		handle_negative(info, i);
