@@ -2,10 +2,11 @@
 
 void	handle_string(t_info *info, va_list arg)
 {
-	if (!(info->s = va_arg(arg, char *)))
-		return ;
+	info->s = va_arg(arg, char *);
 	if (info->s == NULL)
 		info->s = ft_strdup("(null)");
+	else
+		info->s = ft_strdup(info->s);
 	calculate_len(info);
 	if (!info->is_minus_flag)
 	{

@@ -57,8 +57,10 @@ void	handle_integer(t_info *info, va_list arg)
 	int		i;
 
 	i = va_arg(arg, int);
-	if (!(info->s = ft_itoa(ft_abs(i))))
-		return ;
+	if (i == -2147483648)
+		info->s = ft_strdup("2147483648");
+	else
+		info->s = ft_itoa(ft_abs(i));
 	calculate_len(info);
 	if (i < 0)
 		handle_negative(info, i);

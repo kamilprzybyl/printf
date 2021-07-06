@@ -5,8 +5,7 @@ void	handle_u_int(t_info *info, va_list arg)
 	unsigned int		i;
 
 	i = va_arg(arg, unsigned int);
-	if (!(info->s = ft_utoa(i)))
-		return ;
+	info->s = ft_utoa(i);
 	calculate_len(info);
 	if (!info->is_minus_flag)
 	{

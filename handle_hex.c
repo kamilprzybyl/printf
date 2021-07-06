@@ -5,8 +5,7 @@ void	handle_hex(t_info *info, va_list arg)
 	long long	i;
 
 	i = va_arg(arg, unsigned int);
-	if (!(info->s = ft_dec_to_hex(i, 0)))
-		return ;
+	info->s = ft_dec_to_hex(i, 0);
 	calculate_len(info);
 	if (!info->is_minus_flag)
 	{
@@ -35,8 +34,7 @@ void	handle_heX(t_info *info, va_list arg)
 	long long	i;
 
 	i = va_arg(arg, unsigned int);
-	if (!(info->s = ft_dec_to_hex(i, 1)))
-		return ;
+	info->s = ft_dec_to_hex(i, 1);
 	calculate_len(info);
 	if (!info->is_minus_flag)
 	{

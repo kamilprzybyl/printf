@@ -63,7 +63,7 @@ int			ft_toupper(int c);
 void		ft_strrev(char *s);
 int			ft_atoi(const char *str);
 char		*ft_utoa(unsigned int n);
-char		*ft_itoa(long int n);
+char		*ft_itoa(int n);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 int			ft_memcmp(const void *s1, const void *s2, unsigned long n);
